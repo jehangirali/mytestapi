@@ -10,7 +10,7 @@ namespace MyTestWebApi.Controllers
         [HttpGet(Name = "GetDepartment")]
         public string Get()
         {
-            return "My Department!";
+            return "My Department name is ICIT, Gomal University, DIKhan!";
         }
     }
 }
