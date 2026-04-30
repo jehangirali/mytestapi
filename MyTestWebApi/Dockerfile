@@ -2,12 +2,15 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# copy csproj and restore first (better caching)
-COPY *.csproj ./
-RUN dotnet restore
+# copy csproj and restore (from subfolder)
+COPY MyTestWebApi/*.csproj ./MyTestWebApi/
+RUN dotnet restore MyTestWebApi/MyTestWebApi.csproj
 
-# copy everything else and build
-COPY . ./
+# copy full source
+COPY MyTestWebApi/. ./MyTestWebApi/
+WORKDIR /src/MyTestWebApi
+
+# publish
 RUN dotnet publish -c Release -o /app/publish
 
 # Runtime stage
