@@ -34,4 +34,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/mytestapi:latest
             docker stop mytestapi || true
             docker rm mytestapi || true
-            docker run -d -p 80:8080 --name mytestapi ${{ secrets.DOCKER_USERNAME }}/mytestapi:latest
+            docker run -d -p 8080:8080 --name mytestapi ${{ secrets.DOCKER_USERNAME }}/mytestapi:latest
