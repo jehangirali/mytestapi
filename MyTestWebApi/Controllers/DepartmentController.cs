@@ -11,6 +11,7 @@ namespace MyTestWebApi.Controllers
         public string Get()
         {
             return "My Department name is ICIT, Gomal University, DIKhan!";
+
         }
     }
 }
